@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://esakafo:rakotoson123456@mysql-esakafo.alwaysdata.net:3306/esakafo_db"
+  shadowDatabaseUrl = "mysql://esakafo:rakotoson123456@mysql-esakafo.alwaysdata.net:3306/esakafo_shadowdb"
+}
+
+model categorie {
+  id_categorie          Int       @id @default(autoincrement())
+  designation_categorie String?   @db.VarChar(50)
+  recette               recette[]
+}
+
+model comprend {
+  id_recette    Int
+  id_ingredient Int
+  quantite      String?    @db.VarChar(50)
+  recette       recette    @relation(fields: [id_recette], references: [id_recette], onDelete: Cascade, onUpdate: Restrict, map: "comprend_ibfk_1")
+  ingredient    ingredient @relation(fields: [id_ingredient], references: [id_ingredient], onDelete: Cascade, onUpdate: Restrict, map: "comprend_ibfk_2")
+
+  @@id([id_recette, id_ingredient])
+  @@index([id_ingredient], map: "id_ingredient")
+}
+
+model difficulte {
+  id_difficulte          Int       @id @default(autoincrement())
+  designation_difficulte String?   @db.VarChar(50)
+  recette                recette[]
+}
+
+// model etape {
+//   id_etape          Int     @id @default(autoincrement())
+//   description_etape String? @db.VarChar(50)
+//   id_recette        Int
+//   recette           recette @relation(fields: [id_recette], references: [id_recette], onDelete: Cascade, onUpdate: Restrict, map: "etape_ibfk_1")
+
+//   @@index([id_recette], map: "id_recette")
+// }
+
+model ingredient {
+  id_ingredient          Int        @id @default(autoincrement())
+  designation_ingredient String?    @unique @db.VarChar(50)
+  comprend               comprend[]
+}
+
+model recette {
+  id_recette          Int        @id @default(autoincrement())
+  nom_recette         String?    @db.VarChar(50)
+  temps_preparation   String?    @db.VarChar(50)
+  description_recette String?    @db.VarChar(50)
+  contenu_recette     String?     @db.VarChar(1000)
+  perso               Boolean     @default(true)
+  id_difficulte       Int
+  id_categorie        Int
+  comprend            comprend[]
+  // etape               etape[]
+  difficulte          difficulte @relation(fields: [id_difficulte], references: [id_difficulte], onDelete: Cascade, onUpdate: Restrict, map: "recette_ibfk_1")
+  categorie           categorie  @relation(fields: [id_categorie], references: [id_categorie], onDelete: Cascade, onUpdate: Restrict, map: "recette_ibfk_3")
+
+  @@index([id_categorie], map: "id_categorie")
+  @@index([id_difficulte], map: "id_difficulte")
+}

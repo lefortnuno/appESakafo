@@ -1,0 +1,545 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Esakafo"
+    },
+    "tags": [
+        {
+            "name": "Categorie"
+        },
+        {
+            "name": "Difficulte"
+        },
+        {
+            "name": "Etape"
+        },
+        {
+            "name": "Ingredient"
+        },
+        {
+            "name": "Recette"
+        },
+        {
+            "name": "Comprend"
+        }
+    ],
+    "paths" :{
+        "/categories":{
+            "get" : {
+                "tags":["Categorie"],
+                "summary" : "Find all categories"
+            },
+            "post" : {
+                "tags":["Categorie"],
+                "summary" : "Create a category",
+                "consumes" : ["application/x-www-form-urlencoded"],
+                "parameters" : [
+                    {
+                        "name" : "designation_categorie",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/categories/{id}":{
+            "get" : {
+                "tags" : ["Categorie"],
+                "summary" : "Find a category",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle categorie",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "delete" : {
+                "tags" : ["Categorie"],
+                "summary" : "Delete a category",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle categorie",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "put" : {
+                "tags" : ["Categorie"],
+                "summary" : "Update a category",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle categorie",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "designation_categorie",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/difficultes":{
+            "get" : {
+                "tags":["Difficulte"],
+                "summary" : "Find all difficultes"
+            },
+            "post" : {
+                "tags":["Difficulte"],
+                "summary" : "Create a difficulte",
+                "consumes" : ["application/x-www-form-urlencoded"],
+                "parameters" : [
+                    {
+                        "name" : "designation_difficulte",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/difficultes/{id}":{
+            "get" : {
+                "tags" : ["Difficulte"],
+                "summary" : "Find a difficulte",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle difficulte",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "delete" : {
+                "tags" : ["Difficulte"],
+                "summary" : "Delete a difficulte",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle difficulte",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "put" : {
+                "tags" : ["Difficulte"],
+                "summary" : "Update a difficulte",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle difficulte",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "designation_difficulte",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/etapes":{
+            "get" : {
+                "tags":["Etape"],
+                "summary" : "Find all etapes"
+            },
+            "post" : {
+                "tags":["Etape"],
+                "summary" : "Create a etape",
+                "consumes" : ["application/x-www-form-urlencoded"],
+                "parameters" : [
+                    {
+                        "name" : "description_etape",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "id_recette",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            }
+        },
+        "/etapes/{id}":{
+            "get" : {
+                "tags" : ["Etape"],
+                "summary" : "Find a etape",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle etape",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "delete" : {
+                "tags" : ["Etape"],
+                "summary" : "Delete a etape",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle etape",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "put" : {
+                "tags" : ["Etape"],
+                "summary" : "Update a etape",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle etape",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "designation_difficulte",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "id_recette",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            }
+        },
+        "/ingredients":{
+            "get" : {
+                "tags":["Ingredient"],
+                "summary" : "Find all ingredients"
+            },
+            "post" : {
+                "tags":["Ingredient"],
+                "summary" : "Create an ingredient",
+                "consumes" : ["application/x-www-form-urlencoded"],
+                "parameters" : [
+                    {
+                        "name" : "designation_ingredient",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/ingredients/{id}":{
+            "get" : {
+                "tags" : ["Ingredient"],
+                "summary" : "Find an ingredient",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "delete" : {
+                "tags" : ["Ingredient"],
+                "summary" : "Delete an ingredient",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "put" : {
+                "tags" : ["Ingredient"],
+                "summary" : "Update an ingredient",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "designation_ingredient",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/recettes":{
+            "get" : {
+                "tags":["Recette"],
+                "summary" : "Find all recettes"
+            },
+            "post" : {
+                "tags":["Recette"],
+                "summary" : "Create a recette",
+                "consumes" : ["application/x-www-form-urlencoded"],
+                "parameters" : [
+                    {
+                        "name" : "nom_recette",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "temps_preparation",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "description_recette",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "id_difficulte",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "id_categorie",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            }
+        },
+        "/recettes/{id}":{
+            "get" : {
+                "tags" : ["Recette"],
+                "summary" : "Find a recette",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle recette",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "delete" : {
+                "tags" : ["Recette"],
+                "summary" : "Delete a recette",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle recette",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "put" : {
+                "tags" : ["Recette"],
+                "summary" : "Update a recette",
+                "parameters" : [
+                    {
+                        "name" : "id",
+                        "in" : "path",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "nom_recette",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "temps_preparation",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "description_recette",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "id_difficulte",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "id_categorie",
+                        "in" : "formData",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            }
+        },
+        "/recettesByIngredients":{
+            "get" : {
+                "tags" : ["Recette"],
+                "summary" : "Recherche à partir des ingredients",
+                "parameters" : [
+                    {
+                        "name" : "ingredients",
+                        "in" : "formData",
+                        "description" : "Array misy ny ingrédients rehetra",
+                        "required" : true,
+                        "type" : "array"
+                    }
+                ]
+            }
+        },
+        "/recettes/lastId":{
+            "get" : {
+                "tags" : ["Recette"],
+                "summary" : "Id recette farany",
+                "parameters" : [
+                    
+                ]
+            }
+        },
+        "/recettes/perso":{
+            "get" : {
+                "tags" : ["Recette"],
+                "summary" : "Recettes perso",
+                "parameters" : [
+                    
+                ]
+            }
+        },
+        "/recettes/!perso":{
+            "get" : {
+                "tags" : ["Recette"],
+                "summary" : "Recettes tsy perso",
+                "parameters" : [
+                    
+                ]
+            }
+        },
+        "/recette/:id_recette/ingredient/:id_ingredient":{
+            "delete" : {
+                "tags" : ["Comprend"],
+                "summary" : "Delete anle ingredient ana recette",
+                "parameters" : [
+                    {
+                        "name" : "id_recette",
+                        "in" : "path",
+                        "description" : "id anle recette",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "id_ingredient",
+                        "in" : "path",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    }
+                ]
+            },
+            "put" : {
+                "tags" : ["Comprend"],
+                "summary" : "Update anle ingredient ana recette",
+                "parameters" : [
+                    {
+                        "name" : "id_recette",
+                        "in" : "path",
+                        "description" : "id anle recette",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "id_ingredient",
+                        "in" : "path",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "quantite",
+                        "in" : "formData",
+                        "description" : "quantite vaovao",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/comprend":{
+            "post" :{
+                "tags" : ["Comprend"],
+                "summary" : "Ajout ana comprend kopy nji",
+                "parameters" : [
+                    {
+                        "name" : "id_recette",
+                        "in" : "formData",
+                        "description" : "id anle recette",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "id_ingredient",
+                        "in" : "formData",
+                        "description" : "id anle ingredient",
+                        "required" : true,
+                        "type" : "integer"
+                    },
+                    {
+                        "name" : "quantite",
+                        "in" : "formData",
+                        "description" : "quantite anle ingredient",
+                        "required" : true,
+                        "type" : "string"
+                    }
+                ]
+            }
+        },
+        "/sms":{
+            "get" : {
+                "tags" : ["Recette"],
+                "summary" : "Mandefa recette aléatoire par SMS"
+            }
+        }
+    }
+}
